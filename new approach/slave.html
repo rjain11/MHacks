@@ -7,16 +7,16 @@
     <script src="https://cdn.firebase.com/js/client/1.0.21/firebase.js"></script>
     <script>
 
-var maintime;
+        var maintime;
 
-function looper()
-{
-setTimeout(tester1, 10000);
+        function looper()
+        {
+        setTimeout(tester1, 10000);
 
-}
+        }
 
-function tester1()
-{
+        function tester1()
+        {
   
           var second = (new Date().getTime() / 1000)
           console.log('This is tester1 maintime ' + maintime);
@@ -24,15 +24,13 @@ function tester1()
           var currenttime=player.getCurrentTime();
           var timeelapse=second-vlink.seconds;
           console.log(second, vlink.seconds, second-vlink.seconds)
-          if(Math.abs(currenttime-timeelapse)>0.10)
+          if(Math.abs(currenttime-timeelapse)>0.16)
           player.seekTo(second-vlink.seconds,true);
 
           looper();
   
 
  }
-
-
 
       var tag = document.createElement('script');
 
@@ -64,7 +62,7 @@ function tester1()
       }
       
        function onPlayerReady(event) {
-        event.target.playVideo();
+        event.target.pauseVideo();
          console.log('The updated post title isasaasasasas ');
 
       }
