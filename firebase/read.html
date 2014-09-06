@@ -4,13 +4,13 @@
 	<script src="https://cdn.firebase.com/js/client/1.0.21/firebase.js"></script>
 	<script type="text/javascript">
 		var postsRef = new Firebase("https://mhacks2014.firebaseio.com/"); 
+		
 		postsRef.on('child_changed', function (snapshot) {
   			var changedPost = snapshot.val();
-  			console.log('The updated post title is ' + changedPost.title);
+  			console.log('The updated post title is ' + changedPost.seconds);
 		});
 	</script>
 </head>
-<body>
-	<a onclick="function()" href="#">Click</a>
+<body onload="snapshot">
 </body>
 </html>
