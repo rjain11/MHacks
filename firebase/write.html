@@ -1,0 +1,20 @@
+<html>
+<head>
+	<title>FireBase Setup</title>
+	<script src="https://cdn.firebase.com/js/client/1.0.21/firebase.js"></script>
+	<script type="text/javascript">
+		function tester(){
+			//var Firebase = require("firebase");
+			var myFirebaseRef = new Firebase("https://mhacks2014.firebaseio.com/");
+			var usersRef = myFirebaseRef.child("mhacks2014");
+			usersRef.set({
+	  			videoid: "dhruvdiddi",
+	  			seconds: "3"
+			});
+		}
+	</script>
+</head>
+<body>
+	<a onclick="tester()" href="#">Click</a>
+</body>
+</html>
