@@ -11,21 +11,23 @@ var maintime;
 
 function looper()
 {
-setTimeout(tester1, 5000);
+setTimeout(tester1, 10000);
 
 }
 
 function tester1()
 {
   
-          var second = new Date().getTime() / 1000;
+          var second = (new Date().getTime() / 1000)
           console.log('This is tester1 maintime ' + maintime);
-        console.log('The updated post title is ' + vlink.seconds-second);
-       
-        console.log(second, vlink.seconds, second-vlink.seconds)
-         player.seekTo(second-vlink.seconds,true);
+          console.log('The updated post title is ' + vlink.seconds-second);
+          var currenttime=player.getCurrentTime();
+          var timeelapse=second-vlink.seconds;
+          console.log(second, vlink.seconds, second-vlink.seconds)
+          if(Math.abs(currenttime-timeelapse)>0.10)
+          player.seekTo(second-vlink.seconds,true);
 
-         looper();
+          looper();
   
 
  }
