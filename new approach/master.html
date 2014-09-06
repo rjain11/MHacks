@@ -2,20 +2,14 @@
   <html>
     <body>
     
-      <div id="player"></div>
+      <div id="player">
+      </div>
       <script src="https://cdn.firebase.com/js/client/1.0.21/firebase.js"></script>
       <script>
 
       //var currtime;
       var VidIDString="M7lc1UVf-VE";
       var player;
-          
-
-      //function firebaseLooper()
-      //{
-      //  setTimeout(sendTimeData, 5000); 
-      //  VidIDString="Hahaah"
-      //}
 
 
       function sendLinkdata()
@@ -25,21 +19,20 @@
           videoid:'M7lc1UVf-VE'
         });
       }
-        function sendTimeData()
-
-        {
-        
-          var myFirebaseRef = new Firebase("https://mhacks2014.firebaseio.com/");
-          var usersRef = myFirebaseRef.child("mhacks2014");
-          //currtime=player.getCurrentTime();
-          var second = new Date().getTime() / 1000;
-          usersRef.set({
-            seconds: second,
-            videoid:'M7lc1UVf-VE'
-            });
+      
+      function sendTimeData()
+      {
+        var myFirebaseRef = new Firebase("https://mhacks2014.firebaseio.com/");
+        var usersRef = myFirebaseRef.child("mhacks2014");
+        //currtime=player.getCurrentTime();
+        var second = new Date().getTime() / 1000;
+        usersRef.set({
+        seconds: second,
+        videoid:'M7lc1UVf-VE'
+        });
 
         //firebaseLooper();
-            }
+      }
 
 
       var tag = document.createElement('script');
@@ -65,21 +58,20 @@
           });
         }
         
-         function onPlayerReady(event) 
-         {
+        function onPlayerReady(event) 
+        {
             
           event.target.playVideo();
       
           sendTimeData();
-          }
+        }
 
-              function onPlayerStateChange(event) 
-
-            {
-           if (event.data == YT.PlayerState.PLAYING) {
-           // sendTimeData();
+        function onPlayerStateChange(event) 
+        {
+          if (event.data == YT.PlayerState.PLAYING) {
+            //sendTimeData();
             }
         }
-              </script>
+        </script>
     </body>
   </html>
