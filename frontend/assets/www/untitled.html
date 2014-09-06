@@ -1,0 +1,100 @@
+<html>
+<head>
+	<TITLE>MUSE</TITLE>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script type="text/javascript" charset="utf-8" src="js/cordova-2.0.0.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/jquery-1.8.3.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/jquery.mobile-1.2.0.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/hack.js"></script>
+	<link rel="stylesheet" type="text/css" href="jquery/css/jquery.mobile-1.2.0.css"/>
+	<script type="text/javascript" charset="utf-8">
+	//*********************************************************
+	// Wait for Cordova to Load
+	//*********************************************************
+	document.addEventListener("deviceready", onDeviceReady, false);
+	function onDeviceReady() {
+	}
+	</script>
+
+	<script src="https://cdn.firebase.com/js/client/1.0.21/firebase.js"></script>
+
+	<script type="text/javascript">
+    
+    var url= $("#search-basic").val();//'yW63GZHF1wQ';
+    //$("#search-basic").val();
+		var currtime;
+
+    function tester1()
+    {setTimeout(tester, 10000); }
+
+    function tester(){
+      var myFirebaseRef = new Firebase("https://mhacks2014.firebaseio.com/");
+      var usersRef = myFirebaseRef.child("mhacks2014");
+      currtime=player.getCurrentTime();
+      usersRef.set({
+        	videoid: "duvdiddi",
+        	seconds: currtime
+      });
+      tester1();
+    }
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    var VidIDString;
+    var player;
+    function onYouTubeIframeAPIReady() {
+      url = $("#search-basic").val();
+      player = new YT.Player('player', {
+      height: '390',
+      width: '640',
+      videoId: url, //M7lc1UVf-VE
+      events: {
+        'onReady': onPlayerReady,
+        'onStateChange': onPlayerStateChange
+      }
+
+      });
+    }
+        
+    function onPlayerReady(event) {
+      //VidIDString=url;
+      event.target.playVideo();
+    }
+        
+    function onPlayerStateChange(event) {
+      if (event.data == YT.PlayerState.PLAYING) {      
+        tester();
+      }
+    }
+    
+    function stopVideo() {
+      player.stopVideo();
+    }
+	</script>
+</head>
+<body>
+	<div data-role="page" id="pageone">
+  	<div data-role="header" data-position="fixed">
+    	<h1>Music App</h1>
+  	</div>
+  	<p>
+
+
+
+
+  	</p> 
+  	<label for="search-basic" style="text-align:center;"><strong>Youtube Link:</strong>
+  	</label>
+		<input type="search" name="search-basic" id="search-basic" value="" />	
+		<a onCLick="onYouTubeIframeAPIReady()" data-role="button" data-theme="c" style="margin: 0 auto;display:block;width:10%;"> Submit </a>
+		<div id="player" style="display:none;">
+	    
+	    	<!-- <iframe width="497" height="298" id="youPlay" seamless></iframe> -->
+		
+		</div>
+	  
+  </div>
+</body>
+</html>

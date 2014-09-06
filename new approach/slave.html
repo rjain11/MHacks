@@ -1,0 +1,84 @@
+  
+<!DOCTYPE html>
+<html>
+  <body>
+  
+    <div id="player"></div>
+    <script src="https://cdn.firebase.com/js/client/1.0.21/firebase.js"></script>
+    <script>
+
+var maintime;
+
+function looper()
+{
+setTimeout(tester1, 5000);
+
+}
+
+function tester1()
+{
+  
+          var second = new Date().getTime() / 1000;
+          console.log('This is tester1 maintime ' + maintime);
+        console.log('The updated post title is ' + vlink.seconds-second);
+       
+        console.log(second, vlink.seconds, second-vlink.seconds)
+         player.seekTo(second-vlink.seconds,true);
+
+         looper();
+  
+
+ }
+
+
+
+      var tag = document.createElement('script');
+
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      var VidIDString;
+      var player;
+      function onYouTubeIframeAPIReady() {
+
+          var postsRef = new Firebase("https://mhacks2014.firebaseio.com/"); 
+          
+          postsRef.child("mhacks2014").on("value", function(conn) {
+            vlink=conn.val();
+            maintime=vlink.seconds; 
+            //alert(vlink.seconds); 
+
+             player = new YT.Player('player', {
+             height: '390',
+              width: '640',
+              videoId: vlink.videoid,
+              events: {
+                'onReady': onPlayerReady,
+                'onStateChange': onPlayerStateChange
+              }
+        });
+          });
+      }
+      
+       function onPlayerReady(event) {
+        event.target.playVideo();
+         console.log('The updated post title isasaasasasas ');
+
+      }
+
+      // 5. The API calls this function when the player's state changes.
+      //    The function indicates that when playing a video (state=1),
+      //    the player should play for six seconds and then stop.
+            function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.PLAYING) {
+          console.log('The updated post title isasaasaddddddddsasas ');
+          tester1();
+
+          console.log('The updated post title isas ');
+        }
+      }
+    
+    </script>
+  </body>
+</html>
