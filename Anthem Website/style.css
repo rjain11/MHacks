@@ -1,0 +1,80 @@
+@font-face {
+		font-family: MyFirstFont;
+		src: url('FoughtKnight.ttf');
+} 
+
+body 
+{	
+	font-family: MyFirstFont, "Helvetica Neue Light", Helvetica, Arial, sans-serif;
+	background-color: white;
+
+}
+
+
+a:link
+{
+	color: blue;
+	text-decoration: none;
+}
+a:hover{
+	text-decoration: underline;
+}
+a:active{
+	text-decoration: underline;
+	font-weight: bold;
+}
+a:visited
+{
+	color: #00c;
+}
+
+body 
+{
+	margin: 0px;
+}
+
+#container
+{
+	background: white url('assets/bg.jpg') no-repeat fixed center;
+	background-size: 100% 100%;
+	height: 100%;
+	max-width: 100%;
+
+}
+#heading 
+{
+	text-align: center;
+	color: black;
+	font-size: 5.6em;
+	font-weight: 350;
+} 
+#heading3
+{
+	text-align: center;
+	color: white;
+	font-size: 4.6em;
+	font-weight: 200;
+} 
+.webdesigntuts-workshop {
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	overflow-x: hidden;
+}
+.webdesigntuts-workshop form {
+	background: #111;
+	background: -webkit-linear-gradient(#1b1b1b, #111);
+	background: -moz-linear-gradient(#1b1b1b, #111);
+	background: -o-linear-gradient(#1b1b1b, #111);
+	background: -ms-linear-gradient(#1b1b1b, #111);
+	background: linear-gradient(#1b1b1b, #111);
+	border: 1px solid #000;
+	border-radius: 5px;
+	box-shadow: inset 0 0 0 1px #272727;
+	display: inline-block;
+	font-size: 0px;
+	position: relative;
+	z-index: 1;
+}
+
+
