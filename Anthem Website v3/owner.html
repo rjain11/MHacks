@@ -25,17 +25,20 @@
         {
             var vlinkk = conn.val();
             var usersRef = myFirebaseRef.child("mhacks2014");
-        //    if (!player)
-        //        console.log("NO player object !");
-        //    currtime=player.getCurrentTime();
+            //currtime=player.getCurrentTime();
+            /*
             if(player)
                 console.log("Hi");
             if(!player.getCurrentTime())
                 console.log('Bye');
-            currtime = player.getCurrentTime();
+            */
+            ytplayer = document.getElementById('player');
+            currtime=ytplayer.getCurrentTime();
+            //currtime = player.getCurrentTime();
             usersRef.set({
-                  videoid: vlinkk.videoid,//CFXvfBL4WkU,
-                  seconds: currtime
+                  seconds: currtime,
+                  videoid: vlinkk.videoid 
+                  //CFXvfBL4WkU, 
             });
 
         });
