@@ -1,0 +1,112 @@
+@font-face {
+		font-family: MyFirstFont;
+		src: url('FoughtKnight.ttf');
+} 
+
+body 
+{	
+	font-family: MyFirstFont, "Helvetica Neue Light", Helvetica, Arial, sans-serif;
+	background-color: white;
+
+}
+
+
+a:link
+{
+	color: blue;
+	text-decoration: none;
+}
+a:hover{
+	text-decoration: underline;
+}
+a:active{
+	text-decoration: underline;
+	font-weight: bold;
+}
+a:visited
+{
+	color: #00c;
+}
+
+body 
+{
+	margin: 0px;
+}
+
+#container
+{
+	background: white url('assets/bg.jpg') no-repeat fixed center;
+	background-size: 100% 100%;
+	height: 100%;
+	max-width: 100%;
+
+}
+#heading 
+{
+	text-align: center;
+	color: black;
+	font-size: 5.6em;
+	font-weight: 350;
+}
+#heading3
+{
+	text-align: center;
+	color: white;
+	font-size: 4.6em;
+	font-weight: 200;
+} 
+form{
+	width:500px;
+	margin:0 auto;
+}
+.search { 
+	padding:6px 15px 6px 30px;
+	margin:3px; 
+	width:500px;
+	height:40px;
+}
+
+
+input[type=button], input[type=button]:hover {
+	position:repeat; 	
+	width:100px;
+	height:40px;
+	margin:0 auto;
+	border:1px solid #adc5cf;
+	background: #000000; /* Old browsers */
+	background: -moz-linear-gradient(top, #000000 0%, #000000 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#000000), color-stop(100%,#000000)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #000000 0%,#000000 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #000000 0%,#000000 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #000000 0%,#000000 100%); /* IE10+ */
+	background: linear-gradient(top, #000000 0%,#000000 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4f1f9', endColorstr='#d5e7f3',GradientType=0 ); /* IE6-9 */
+	color:#ffffff;
+	cursor: pointer;
+}
+
+.dark {
+	width:95%;
+	height:50px;
+	padding:40px 25px;
+}
+
+.dark input[type=text]{
+	border:1px solid #030303;
+	background-color:#2d3035;
+	color:rgb(255,255,255);
+	font-size: 20px;
+}
+
+
+.styButton {
+            color: black;
+            font-size: 25px;
+            border:none;
+            background: transparent; 
+            margin: 0 auto;
+            display:block;
+            width:30%;
+        }
+
+

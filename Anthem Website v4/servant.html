@@ -17,15 +17,15 @@ function tester1()
 {setTimeout(tester, 10000); }
 
 function tester(){
-        var postsRef = new Firebase("https://mhacks2014.firebaseio.com/"); 
-        
-        postsRef.on('child_changed', function (snapshot) {
-            var changedPost = snapshot.val();
-            console.log('The updated post title is ' + changedPost.seconds);
-            player.seekTo(changedPost.seconds,true)
-            tester1();
-        });
-}
+     var postsRef = new Firebase("https://mhacks2014.firebaseio.com/"); 
+    
+    postsRef.on('child_changed', function (snapshot) {
+        var changedPost = snapshot.val();
+        console.log('The updated post title is ' + changedPost.seconds);
+        player.seekTo(changedPost.seconds,true)
+        tester1();
+    });
+          }
 
 
       var tag = document.createElement('script');
@@ -36,41 +36,25 @@ function tester(){
 
       var VidIDString;
       var player;
-
       function onYouTubeIframeAPIReady() {
-
-        var postsRef = new Firebase("https://mhacks2014.firebaseio.com/");
-        postsRef.child("mhacks2014").on("value",function(conn){
-              var vlink = conn.val();
-              maintime=vlink.seconds;
-
-      
-              player = new YT.Player('player', {
-              height: '390',
-              width: '640',
-              videoId: vlink.videoid,
-              events: {
-                'onReady': onPlayerReady,
-                'onStateChange': onPlayerStateChange
-              }
-        });
-
-        //earlier it was here
-        
+        player = new YT.Player('player', {
+          height: '390',
+          width: '640',
+          videoId: 'CFXvfBL4WkU',
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          }
 
         });
-}
+      }
       
        function onPlayerReady(event) {
         event.target.playVideo();
-        console.log('onPlayerReady seems to work fine');
         //tester();
 
       }
 
-      // 5. The API calls this function when the player's state changes.
-      //    The function indicates that when playing a video (state=1),
-      //    the player should play for six seconds and then stop.
             function onPlayerStateChange(event) {
         if (event.data == YT.PlayerState.PLAYING) {
           

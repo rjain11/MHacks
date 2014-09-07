@@ -13,20 +13,35 @@
   var currtime;
 
   function tester1()
-  {setTimeout(tester, 10000); }
+  {
+    setTimeout(tester, 10000); 
+  }
 
-  function tester(){
-        //var Firebase = require("firebase");
+  function tester()
+  {
         var myFirebaseRef = new Firebase("https://mhacks2014.firebaseio.com/");
-        var usersRef = myFirebaseRef.child("mhacks2014");
-        currtime=player.getCurrentTime();
-        usersRef.set({
-            videoid: "duvdiddi",
-            seconds: currtime
+
+        myFirebaseRef.child("mhacks2014").on("value", function(conn)
+        {
+            var vlinkk = conn.val();
+            var usersRef = myFirebaseRef.child("mhacks2014");
+        //    if (!player)
+        //        console.log("NO player object !");
+        //    currtime=player.getCurrentTime();
+            if(player)
+                console.log("Hi");
+            if(!player.getCurrentTime())
+                console.log('Bye');
+            currtime = player.getCurrentTime();
+            usersRef.set({
+                  videoid: vlinkk.videoid,//CFXvfBL4WkU,
+                  seconds: currtime
+            });
+
         });
 
         tester1();
-            }
+  }
 
 
         var tag = document.createElement('script');
@@ -37,28 +52,34 @@
 
         var VidIDString;
         var player;
-        function onYouTubeIframeAPIReady() {
-          player = new YT.Player('player', {
-            height: '390',
-            width: '640',
-            videoId: 'M7lc1UVf-VE',
-            events: {
-              'onReady': onPlayerReady,
-              'onStateChange': onPlayerStateChange
-            }
 
-          });
+        function onYouTubeIframeAPIReady() 
+        {
+
+              var postsRef = new Firebase("https://mhacks2014.firebaseio.com/");
+              postsRef.child("mhacks2014").on("value",function(conn){
+                   var vlink = conn.val();
+                  //maintime=vlink.seconds;
+                  console.log(vlink.seconds);
+                  console.log(vlink.videoid)
+
+                player = new YT.Player('player', {
+                height: '390',
+                width: '640',
+                videoId: vlink.videoid,
+                events: {
+                  'onReady': onPlayerReady,
+                  'onStateChange': onPlayerStateChange
+                }
+
+              });
+        });
         }
         
          function onPlayerReady(event) {
           event.target.playVideo();
-          //tester();
-
         }
 
-        // 5. The API calls this function when the player's state changes.
-        //    The function indicates that when playing a video (state=1),
-        //    the player should play for six seconds and then stop.
               function onPlayerStateChange(event) {
           if (event.data == YT.PlayerState.PLAYING) {
             
