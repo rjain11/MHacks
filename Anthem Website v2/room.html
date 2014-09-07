@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<title>Anthem</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link href='http://fonts.googleapis.com/css?family=Alegreya+Sans+SC' rel='stylesheet' type='text/css'>
+		<script src="https://cdn.firebase.com/js/client/1.0.21/firebase.js"></script>
+		<script type="text/javascript">
+			function fire(frm){
+				alert(frm.searchtext.value);
+
+				var myFirebaseRef = new Firebase("https://mhacks2014.firebaseio.com/");
+				var usersRef = myFirebaseRef.child("mhacks2014");
+				var second = new Date().getTime() / 1000;
+		        usersRef.set({
+		        seconds: second,
+		        videoid: frm.searchtext.value
+		        });
+			}
+		</script>
+	</head>
+	<body>
+		<div id='container'>
+			<br>
+			<div id='heading'>Anthem</div>
+		
+		<div class="dark">
+			<form>
+					<span><input type="text" class="search square" name="searchtext"><input type="button" value="Search" onclick="fire(this.form)"></span>
+			</form>
+		</div>
+
+
+
+		</div>
+	</body>
+</html>
