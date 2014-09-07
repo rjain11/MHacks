@@ -48,7 +48,13 @@ body
 	font-size: 5.6em;
 	font-weight: 350;
 } 
-
+#heading3
+{
+	text-align: center;
+	color: white;
+	font-size: 4.6em;
+	font-weight: 200;
+} 
 .webdesigntuts-workshop {
 	position: absolute;
 	text-align: center;

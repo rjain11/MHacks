@@ -1,0 +1,82 @@
+  <!DOCTYPE html>
+  <html>
+    <head>
+    <title>Master</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body background='assets/black.jpg'>
+  <div id="heading3" >Anthem : Master</div>
+    
+      <div id="player" style="margin: 0 auto; display:block; padding-top:3%;">
+      </div>
+      <script src="https://cdn.firebase.com/js/client/1.0.21/firebase.js"></script>
+      <script>
+
+      //var currtime;
+      var VidIDString='CFXvfBL4WkU';
+      var player;
+
+
+      function sendLinkdata()
+      {
+
+        usersRef.set({
+          videoid:'CFXvfBL4WkU'
+        });
+      }
+      
+      function sendTimeData()
+      {
+        var myFirebaseRef = new Firebase("https://mhacks2014.firebaseio.com/");
+        var usersRef = myFirebaseRef.child("mhacks2014");
+        //currtime=player.getCurrentTime();
+        var second = new Date().getTime() / 1000;
+        usersRef.set({
+        seconds: second,
+        videoid:'CFXvfBL4WkU'
+        });
+
+        //firebaseLooper();
+      }
+
+
+      var tag = document.createElement('script');
+
+         tag.src = "https://www.youtube.com/iframe_api";
+          var firstScriptTag = document.getElementsByTagName('script')[0];
+          firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        
+
+        function onYouTubeIframeAPIReady() 
+        {
+
+          player = new YT.Player('player', {
+            height: '390',
+            width: '640',
+            videoId: 'CFXvfBL4WkU',
+            events: {
+              'onReady': onPlayerReady,
+              'onStateChange': onPlayerStateChange
+            }
+
+          });
+        }
+        
+        function onPlayerReady(event) 
+        {
+            
+          event.target.playVideo();
+      
+          sendTimeData();
+        }
+
+        function onPlayerStateChange(event) 
+        {
+          if (event.data == YT.PlayerState.PLAYING) {
+            //sendTimeData();
+            }
+        }
+        </script>
+    </body>
+  </html>
