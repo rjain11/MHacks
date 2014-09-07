@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <title>Owner</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body background='assets/black.jpg'>
+      <div id="heading3">Anthem : M</div>
+      <div id="player" style="margine:0 auto; display:block; padding-top:3%;"></div>
+      <script src="https://cdn.firebase.com/js/client/1.0.21/firebase.js"></script>
+      <script>
+
+  var currtime;
+
+  function tester1()
+  {setTimeout(tester, 10000); }
+
+  function tester(){
+        //var Firebase = require("firebase");
+        var myFirebaseRef = new Firebase("https://mhacks2014.firebaseio.com/");
+        var usersRef = myFirebaseRef.child("mhacks2014");
+        currtime=player.getCurrentTime();
+        usersRef.set({
+            videoid: "duvdiddi",
+            seconds: currtime
+        });
+
+        tester1();
+            }
+
+
+        var tag = document.createElement('script');
+
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        var VidIDString;
+        var player;
+        function onYouTubeIframeAPIReady() {
+          player = new YT.Player('player', {
+            height: '390',
+            width: '640',
+            videoId: 'M7lc1UVf-VE',
+            events: {
+              'onReady': onPlayerReady,
+              'onStateChange': onPlayerStateChange
+            }
+
+          });
+        }
+        
+         function onPlayerReady(event) {
+          event.target.playVideo();
+          //tester();
+
+        }
+
+        // 5. The API calls this function when the player's state changes.
+        //    The function indicates that when playing a video (state=1),
+        //    the player should play for six seconds and then stop.
+              function onPlayerStateChange(event) {
+          if (event.data == YT.PlayerState.PLAYING) {
+            
+            
+            tester();
+
+           
+          }
+        }
+        function stopVideo() {
+          player.stopVideo();
+        }
+      </script>
+    </body>
+  </html>
