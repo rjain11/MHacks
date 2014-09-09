@@ -20,3 +20,6 @@ We came up with this idea with an intention to promote synchronized play over al
 
 It is a master - slave approach. There is one master who dictates what video has to be synchronized. There can be N number of slaves. These slaves follow the master. The script in the master continously sends the exact position being played in the video; and this data is picked up by the slaves to synchronize themselves. 
 
+Link to Website: https://rishabh-jain/mhacks/2014
+
+Note: Some parts of the website might not work as expected because I am testing/adding new features. :)
