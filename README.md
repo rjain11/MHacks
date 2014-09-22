@@ -5,7 +5,7 @@ Built using JavaScript, YouTube Data API, HTML/CSS
 </b>
 
 <b>
-Developed by Rishabh Jain, Kanishk Thareja, Dhruv Diddi, Shivam Gupta
+Developed by Rishabh Jain, Kanishk Thareja, Dhruv Diddi
 </b>
 
 <b>
